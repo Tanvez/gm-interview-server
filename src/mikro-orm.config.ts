@@ -6,7 +6,8 @@ import path from "path";
 export default {
   migrations: {
     path: path.join(__dirname, './migrations'), // path to folder with migration files
-    pattern: /^[\w-]+\d+\.[tj]s$/
+    pattern: /^[\w-]+\d+\.[tj]s$/,
+    disableForeignKeys: false
   },
   entities: [Entry], // corresponds to db tables
   clientUrl: __clientUrl__,
