@@ -11,8 +11,7 @@ export default {
   entities: [Entry], // corresponds to db tables
   dbName: __dbName__,
   clientUrl: __clientUrl__,
-  // host: __dbHost__,
-  // type: __dbType__,
+  type: __dbType__,
   debug: !__prod__,
 } as Parameters<typeof MikroORM.init>[0];
 // types for autocompletion
