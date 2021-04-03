@@ -14,10 +14,7 @@ export default {
   type: __dbType__,
   driverOptions: {
     connection: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
+      ssl: false,
     },
   },
   debug: !__prod__,
