@@ -1,0 +1,1 @@
+psql -d gm-interview < ./src/seeder/gm-interview.sql
