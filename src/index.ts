@@ -13,6 +13,7 @@ const main = async () => {
   await orm.getMigrator().up(); // run migration before anything else
 
   const app = express();
+  app.use(cors)
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [HelloResolver, EntryResolver],
@@ -21,7 +22,7 @@ const main = async () => {
     // gives access to orm.em functions to use in resolvers
     context: () => ({ em: orm.em }),
   });
-  apolloServer.applyMiddleware({ app, cors: true });
+  apolloServer.applyMiddleware({ app });
   app.listen(4000, () => {
     console.log("server running on port 4000");
   });
