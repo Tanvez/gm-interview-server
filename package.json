@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "start2": "ts-node src/index.ts",
     "dev2": "nodemon --exec ts-node src/index.ts",
-    "heroku-postbuild": "npm run watch"
+    "heroku-postbuild": "tsc"
   },
   "keywords": [],
   "author": "",
