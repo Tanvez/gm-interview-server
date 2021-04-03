@@ -1,5 +1,5 @@
 import { MikroORM } from "@mikro-orm/core";
-import { __prod__ } from "./constants";
+import { __prod__, __port__ } from "./constants";
 import microConfig from "./mikro-orm.config";
 import express from "express";
 import { buildSchema } from "type-graphql";
@@ -23,7 +23,7 @@ const main = async () => {
     context: () => ({ em: orm.em }),
   });
   apolloServer.applyMiddleware({ app });
-  app.listen(4000, () => {
+  app.listen(__port__, () => {
     console.log("server running on port 4000");
   });
 };
