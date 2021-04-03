@@ -9,9 +9,16 @@ export default {
     pattern: /^[\w-]+\d+\.[tj]s$/
   },
   entities: [Entry], // corresponds to db tables
-  dbName: __dbName__,
   clientUrl: __clientUrl__,
   type: __dbType__,
+  driverOptions: {
+    connection: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  },
   debug: !__prod__,
 } as Parameters<typeof MikroORM.init>[0];
 // types for autocompletion
