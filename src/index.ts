@@ -23,8 +23,8 @@ const main = async () => {
     context: () => ({ em: orm.em }),
   });
   apolloServer.applyMiddleware({ app });
-  app.listen(__port__, () => {
-    console.log("server running on port 4000");
+  app.listen(parseInt(__port__), () => {
+    console.log(`server running on port ${__port__}`);
   });
 };
 
