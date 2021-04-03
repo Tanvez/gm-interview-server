@@ -28,9 +28,9 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             resolvers: [hello_1.HelloResolver, entry_1.EntryResolver],
             validate: false,
         }),
-        context: () => ({ em: orm.em })
+        context: () => ({ em: orm.em }),
     });
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({ app, cors: true });
     app.listen(4000, () => {
         console.log("server running on port 4000");
     });
