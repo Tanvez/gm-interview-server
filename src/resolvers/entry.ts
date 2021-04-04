@@ -1,7 +1,43 @@
 import { Entry } from "../entities/Entry";
-import { Resolver, Query, Ctx, Arg, Int, Mutation } from "type-graphql";
+import {
+  Resolver,
+  Query,
+  Ctx,
+  Arg,
+  Int,
+  Mutation,
+  InputType,
+  Field,
+} from "type-graphql";
 import { MyContext } from "../types";
 
+//TODO make seperate file
+@InputType()
+class EntryInput {
+  @Field()
+  client: string;
+
+  @Field()
+  project: string;
+
+  @Field()
+  projectCode: string;
+
+  @Field()
+  hours: string;
+
+  @Field()
+  firstName: string;
+
+  @Field()
+  lastName: string;
+
+  @Field()
+  billable: boolean;
+
+  @Field()
+  billableRate: number;
+}
 @Resolver()
 export class EntryResolver {
   @Query(() => [Entry]) // type thats its returning - this case its an array
@@ -21,28 +57,13 @@ export class EntryResolver {
 
   @Mutation(() => Entry) // graphql type thats its returning
   async createEntry(
-    // you can name id to anything, just a variable name
-    @Arg("client", () => String) client: string,
-    @Arg("project", () => String) project: string,
-    @Arg("projectCode", () => String) projectCode: string,
-    @Arg("hours", () => String) hours: string,
-    @Arg("firstName", () => String) firstName: string,
-    @Arg("lastName", () => String) lastName: string,
-    @Arg("billable", () => Boolean) billable: boolean,
-    @Arg("billableRate", () => Int) billableRate: number,
+    @Arg("input") input: EntryInput,
     // typescript returns a Entry or null
     @Ctx() { em }: MyContext
   ): Promise<Entry | null> {
-    const entry = em.create(Entry, {
-      client,
-      project,
-      projectCode,
-      hours,
-      firstName,
-      lastName,
-      billable,
-      billableRate
-    });
+    // TODO ADD VALIDATION FOR FIELDS ex: hours should be decimal etc
+    const entry = em.create(Entry, input);
+    await em.persistAndFlush(entry);
     return entry; // where by default
   }
 }
