@@ -6,12 +6,14 @@ import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
 import { HelloResolver } from "./resolvers/hello";
 import { EntryResolver } from "./resolvers/entry";
+import cors from "cors";
 
 const main = async () => {
   const orm = await MikroORM.init(microConfig);
   await orm.getMigrator().up(); // run migration before anything else
 
   const app = express();
+  app.use(cors)
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [HelloResolver, EntryResolver],
