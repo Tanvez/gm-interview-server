@@ -25,3 +25,14 @@ To seed the database after the database is created
 ```bash
 bash ./src/seeder/seedScript.sh
 ```
+
+### Docker/Droplet/Dokku deployment
+TODO ci/cd?
+- local terminal - 
+  - docker build : `docker build -t <accountname>:<version>` ex: `docker build -t tanvez/gm-interview:1.1 .`
+  - docker push : `docker push <accountname>:<version>` `docker push  tanvez/gm-interview:1.1`
+  - 
+- ssh into droplet via ip `ssh root@<ip>`    
+  - pull docker image: `docker pull tanvez/gm-interview:1.1`
+  - tag docker image: `docker tag tanvez/gm-interview:1.1 dokku/server:1.1`
+  - deplot using dokku: ` dokku deploy server 1.1`
