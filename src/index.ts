@@ -13,9 +13,9 @@ const main = async () => {
   await orm.getMigrator().up(); // run migration before anything else
 
   const app = express();
+  // app.use(cors)
   app.use(cors({
-    origin: __CORS_URL__,
-    credentials:true
+    origin: __CORS_URL__
   }))
   const apolloServer = new ApolloServer({
     schema: await buildSchema({

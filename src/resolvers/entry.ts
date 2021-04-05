@@ -41,7 +41,7 @@ class EntryInput {
 @Resolver()
 export class EntryResolver {
   @Query(() => [Entry]) // type thats its returning - this case its an array
-  Entrys(@Ctx() { em }: MyContext): Promise<Entry[]> {
+  Entries(@Ctx() { em }: MyContext): Promise<Entry[]> {
     return em.find(Entry, {});
   }
 
