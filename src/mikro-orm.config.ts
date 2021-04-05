@@ -1,4 +1,4 @@
-import { __prod__, __dbType__, __url__, __dbName__ } from "./constants";
+import { __prod__, __url__ } from "./constants";
 import { Entry } from "./entities/Entry";
 import { MikroORM } from "@mikro-orm/core";
 import path from "path";
@@ -10,7 +10,7 @@ export default {
   },
   entities: [Entry], // corresponds to db tables
   clientUrl: __url__,
-  type: __dbType__,
+  type: 'postgresql',
   debug: !__prod__,
 } as Parameters<typeof MikroORM.init>[0];
 // types for autocompletion
