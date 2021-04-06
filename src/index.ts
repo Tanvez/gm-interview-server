@@ -15,7 +15,7 @@ const main = async () => {
   const app = express();
   // app.use(cors)
   app.use(cors({
-    origin: __CORS_URL__
+    origin: "*"
   }))
   const apolloServer = new ApolloServer({
     schema: await buildSchema({

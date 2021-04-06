@@ -10,7 +10,6 @@ bash ./src/seeder/seedScript.sh
 ### Simple way to run locally 
 ```bash
 npm install
-npx mikro-orm migration:create
 npm run dev2
 ```
 
