@@ -1,5 +1,12 @@
+## Create database
+Make sure you have psql(postgres) installed
+
+```bash
+bash ./src/seeder/seedScript.sh
+```
 ## To Run Locally on Mac
 
+### Create .env file
 ### Simple way to run locally 
 ```bash
 npm install
@@ -7,23 +14,17 @@ npx mikro-orm migration:create
 npm run dev2
 ```
 
-### If you want more faster loads after you install the node_modules
+### Another way to run locally while using watch and nodemon on the dist folder
 Terminal1 should run the conversion ts into js into a `/dist` folder via the command below
 
-```base
+```bash
 npm run watch
 ```
 
 Terminal2 should run the command below to call the `/dist` folder
 
-```
-npm run dev
-```
-
-To seed the database after the database is created
-
 ```bash
-bash ./src/seeder/seedScript.sh
+npm run dev
 ```
 
 ### Docker/Droplet/Dokku deployment

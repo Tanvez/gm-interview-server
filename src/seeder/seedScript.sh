@@ -1,1 +1,1 @@
-psql -d gm-interview < ./src/seeder/gm-interview.sql
+createdb gm-interview && psql -d gm-interview < ./src/seeder/gm-interview.sql

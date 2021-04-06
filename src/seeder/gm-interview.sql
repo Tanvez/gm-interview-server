@@ -1,3 +1,15 @@
+CREATE TABLE IF NOT EXISTS "entry" (
+    "created_at" TIMESTAMP,
+    "client" TEXT,
+    "project" TEXT,
+    "project_code" TEXT,
+    "hours" NUMERIC(3, 2),
+    "billable" TEXT,
+    "first_name" TEXT,
+    "last_name" TEXT,
+    "billable_rate" INT
+);
+
 INSERT INTO "entry"("created_at","client","project","project_code","hours","billable","first_name","last_name","billable_rate")
  VALUES
     ('2017-04-03 00:00:00','Anil','Ethereum','RD001',3.84,false,'Robert','Powell',0),
