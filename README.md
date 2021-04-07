@@ -1,10 +1,11 @@
-## Create database
+## To Run Locally on Mac
+### Create database
 Make sure you have psql(postgres) installed
+Note: the script should create the database and seed it with data from the provided csv
 
 ```bash
 bash ./src/seeder/seedScript.sh
 ```
-## To Run Locally on Mac
 
 ### Create .env file
 ### Simple way to run locally 
