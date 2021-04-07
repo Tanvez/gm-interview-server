@@ -26,8 +26,10 @@ Terminal2 should run the command below to call the `/dist` folder
 ```bash
 npm run dev
 ```
-
 ### Docker/Droplet/Dokku deployment
+The server is deployed to https://server.tanvez.xyz
+You will need to use a GraphQL client( I use Altair GraphQL client) if you wanted to test out the endpoint point.
+
 TODO ci/cd?
 - local terminal - 
   - docker build : `docker build -t <accountname>:<version>` ex: `docker build -t tanvez/gm-interview:1.1 .`
