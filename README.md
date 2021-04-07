@@ -8,7 +8,7 @@ bash ./src/seeder/seedScript.sh
 ```
 
 ### Create .env file
-### Simple way to run locally 
+### To run locally 
 ```bash
 npm install
 npm run dev2
